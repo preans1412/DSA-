@@ -13,6 +13,20 @@ class StackUsingArray
     capacity=totalSize;
   }
 
+/* 
+   StackUsingArray(int capacity)
+{  this ->capacity=capacity;
+     data = new int[capacity];
+    nextIndex = -1;
+}
+push()
+{
+if(capacity-nextIndex > 1)
+{ data[nextIndex]=element;
+    nextIndex++; }
+}
+
+*/
   void push(int element)
   {
     if(nextIndex==capacity)
