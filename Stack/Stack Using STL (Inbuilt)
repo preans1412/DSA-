@@ -1,0 +1,24 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+int main()
+{
+    stack<int> s;
+    s.push(1);
+    s.push(7);
+    s.push(3);
+    
+   //cout<<s.pop()<<endl; // this will show error  
+    s.pop();
+    cout<<"top element -> "<<s.top()<<endl;
+    cout<<"size -> "<<s.size()<<endl;
+    if(s.empty())  // not isEmpty()
+    {
+        cout<<"stack is empty"<<endl;
+    }
+    else{
+        cout<<"stack is not empty"<<endl;
+    }
+
+    
+}
