@@ -24,8 +24,13 @@ push()
 if(capacity-nextIndex > 1)
 { data[nextIndex]=element;
     nextIndex++; }
+else cout<<"stack overflow";
 }
-
+pop(){
+if(nextIndex>=0) 
+nextIndex--;
+else cout<<"stack underflow";
+}
 */
   void push(int element)
   {
