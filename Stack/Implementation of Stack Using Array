@@ -1,0 +1,78 @@
+#include<iostream>
+using namespace std;
+
+class StackUsingArray
+{
+  int *data;//as array is created dynamically so that we have initialized it globally
+  int nextIndex, capacity;
+  public:
+  StackUsingArray(int totalSize) // totalSize ka scope is only inside the constructor
+  {
+    data = new int[totalSize]; // created array dynamically
+    nextIndex = 0;
+    capacity=totalSize;
+  }
+
+  void push(int element)
+  {
+    if(nextIndex==capacity)
+    {
+        cout<<"Stack Full"<<endl;
+        return;
+    }
+    data[nextIndex]=element;
+    nextIndex++;
+  }
+  int pop()
+  {
+    if(isEmpty())
+    {
+        cout<<"Stack is Empty"<<endl;
+        return INT_MIN;
+    }
+    nextIndex--;
+    return data[nextIndex];
+  }
+  bool isEmpty()
+  {
+    if(nextIndex==0)
+    {
+        return true;
+    }
+    else{
+        return false;
+    }
+  }
+  int top()
+  {
+     if(isEmpty())
+    {
+        cout<<"Stack is Empty"<<endl;
+        return INT_MIN;
+    }
+    return data[nextIndex-1];
+  }
+  int size()
+  {
+    return nextIndex;
+  }
+};
+
+int main()
+{
+    
+   StackUsingArray s(4); // 4 is size of stack
+   s.push(1);
+   s.push(2);
+   s.push(3);
+   s.push(4);
+   s.push(5);// this will give stack full  
+   cout<<s.pop()<<endl; // return 4 and remove 
+   cout<<s.top()<<endl; // return 3
+   cout<<s.pop()<<endl; // remove and return 3
+   cout<<s.size()<<endl; // size is now 2
+   cout<<s.pop()<<endl; // remove and return 2
+   cout<<s.pop()<<endl; // remove and return 1
+   cout<<s.size()<<endl; // return 0
+   cout<<s.isEmpty()<<endl;
+}
