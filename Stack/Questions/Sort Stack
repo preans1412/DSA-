@@ -1,0 +1,27 @@
+// https://www.codingninjas.com/studio/problems/abc_1229513?leftPanelTab=1
+
+#include <bits/stdc++.h> 
+void sort(stack<int>&stack,int element)
+{
+   if(stack.empty() || (!stack.empty() && stack.top()<element))
+   {
+	   stack.push(element);
+	   return;
+   }
+    int num=stack.top();
+   stack.pop();
+   sort(stack,element);
+   stack.push(num);
+}
+
+stack<int> sortStack(stack<int> &s)
+{
+   if (!s.empty()) {
+
+           int num = s.top();
+           s.pop();
+           sortStack(s);
+           sort(s, num);
+   }
+        return s;
+}
