@@ -1,0 +1,90 @@
+#include<iostream>
+using namespace std;
+class QueueUsingArray
+{
+    int * data;
+     int front;
+     int rear;
+    int size;
+    int capacity;
+    public:
+   
+    QueueUsingArray(int s)
+    {
+        data=new int[s];
+        front=-1;
+        rear=-1;
+        size=0;
+        capacity=s;
+    }
+
+    int sizeQueue()
+    {
+        return size;
+    }
+    bool empty()
+    {
+        return size==0;
+    }
+    int top()
+    {
+        if(empty())
+        {
+            cout<<"Queue is empty"<<endl;
+            return 0;
+        }
+        return data[front];
+    }
+    void push(int element)
+    {
+      if(size==capacity)
+      {
+        cout<<"queue full"<<endl;
+        return;
+      }
+       // if(front ==-1)
+       if(size==0)
+        {
+            front =0;
+        }
+          rear++;
+          size++;
+        data[rear]=element;
+    }
+
+    int pop()
+    {
+        if(empty())
+        {
+            cout<<"Queue is empty"<<endl;
+            return 0;
+        }
+        int temp=data[front];
+        
+        front++;
+        size--;
+        if(size==0)
+        {
+            front=-1;
+            rear=-1;
+        }
+        return temp;
+    }
+};
+int main()
+{
+    
+    QueueUsingArray q(4);
+    q.push(10);
+    q.push(20);
+     q.push(30);
+    q.push(40);
+
+    cout<<q.top()<<endl;
+    cout<<q.pop()<<endl;
+    cout<<q.pop()<<endl;
+
+    cout<<q.sizeQueue()<<endl;
+    cout<<q.empty()<<endl;
+ 
+}
